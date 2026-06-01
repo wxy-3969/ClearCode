@@ -1,0 +1,39 @@
+{
+  "name": "clear-code",
+  "displayName": "Clear Code",
+  "description": "一键删除代码中的注释和空行",
+  "version": "0.0.1",
+  "publisher": "clearcode",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/clear-code.git"
+  },
+  "categories": [
+    "Formatters",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "clear-code.clear",
+        "title": "Clear Code: 删除注释和空行"
+      },
+      {
+        "command": "clear-code.restore",
+        "title": "Clear Code: 恢复原始代码"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "clear-code.clear",
+        "key": "ctrl+alt+/",
+        "when": "editorTextFocus"
+      }
+    ]
+  }
+}
