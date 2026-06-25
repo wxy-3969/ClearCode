@@ -26,12 +26,21 @@
       {
         "command": "clear-code.restore",
         "title": "Clear Code: 恢复原始代码"
+      },
+      {
+        "command": "clear-code.format",
+        "title": "Clear Code: 格式化代码 (C++: K&R, Python: PEP 8)"
       }
     ],
     "keybindings": [
       {
         "command": "clear-code.clear",
         "key": "ctrl+alt+/",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "clear-code.format",
+        "key": "ctrl+alt+c",
         "when": "editorTextFocus"
       }
     ]
