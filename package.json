@@ -2,7 +2,7 @@
   "name": "clear-code",
   "displayName": "Clear Code",
   "description": "一键删除代码中的注释和空行",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "clearcode",
   "engines": {
     "vscode": "^1.85.0"
