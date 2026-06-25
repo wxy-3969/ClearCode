@@ -40,7 +40,22 @@ function activate(context) {
     }
 
     if (lang === "html") {
+      // 删除 HTML 注释 <!-- -->
       cleaned = cleaned.replace(/<!--[\s\S]*?-->/g, "");
+      // 删除内嵌 <style> 中的 CSS 注释 /* */
+      cleaned = cleaned.replace(
+        /(<style[\s\S]*?>)([\s\S]*?)(<\/style>)/gi,
+        (_, open, content, close) => open + content.replace(/\/\*[\s\S]*?\*\//g, "") + close
+      );
+      // 删除内嵌 <script> 中的 JS 注释 // 和 /* */
+      cleaned = cleaned.replace(
+        /(<script[\s\S]*?>)([\s\S]*?)(<\/script>)/gi,
+        (_, open, content, close) => {
+          let c = content.replace(/\/\*[\s\S]*?\*\//g, "");
+          c = c.replace(/\/\/.*/g, "");
+          return open + c + close;
+        }
+      );
     }
 
     if (lang === "css" || lang === "scss" || lang === "less") {
